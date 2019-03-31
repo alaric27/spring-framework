@@ -49,6 +49,8 @@ import org.springframework.core.io.Resource;
  * @see XmlBeanDefinitionReader
  * @deprecated as of Spring 3.1 in favor of {@link DefaultListableBeanFactory} and
  * {@link XmlBeanDefinitionReader}
+ *
+ * 对
  */
 @Deprecated
 @SuppressWarnings({"serial", "all"})

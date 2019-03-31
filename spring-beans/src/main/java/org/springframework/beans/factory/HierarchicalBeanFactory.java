@@ -19,6 +19,8 @@ package org.springframework.beans.factory;
 import org.springframework.lang.Nullable;
 
 /**
+ * 在BeanFactory 的基础上增加了对ParentBeanFactory 的支持。
+ * 可用于构建父子容器，例如spring mvc
  * Sub-interface implemented by bean factories that can be part
  * of a hierarchy.
  *

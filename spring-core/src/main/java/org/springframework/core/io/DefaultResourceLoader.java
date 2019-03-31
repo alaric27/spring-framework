@@ -31,6 +31,7 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * ResourceLoader 接口的默认实现
  * Default implementation of the {@link ResourceLoader} interface.
  * Used by {@link ResourceEditor}, and serves as base class for
  * {@link org.springframework.context.support.AbstractApplicationContext}.
@@ -144,27 +145,34 @@ public class DefaultResourceLoader implements ResourceLoader {
 	public Resource getResource(String location) {
 		Assert.notNull(location, "Location must not be null");
 
+		// 如果我们自定义了ProtocolResolver,是会优先调用的
 		for (ProtocolResolver protocolResolver : this.protocolResolvers) {
 			Resource resource = protocolResolver.resolve(location, this);
+			// 根据返回值是否为null判断自定义的ProtocolResolver是否解决了resource的加载
 			if (resource != null) {
 				return resource;
 			}
 		}
 
+		// 如果资源路径是以/开头，则认为它是ClassPath路径，返回ClassPathContextResource。
 		if (location.startsWith("/")) {
 			return getResourceByPath(location);
 		}
+		// 如果资源以classpath: 开头,返回一个ClassPathResource对象。去除开头的classpath:
 		else if (location.startsWith(CLASSPATH_URL_PREFIX)) {
 			return new ClassPathResource(location.substring(CLASSPATH_URL_PREFIX.length()), getClassLoader());
 		}
 		else {
 			try {
 				// Try to parse the location as a URL...
+				// 尝试使用URL的方式进行解析
 				URL url = new URL(location);
+				// 如果是文件协议的则返回FileUrlResource，否则返回UrlResource
 				return (ResourceUtils.isFileURL(url) ? new FileUrlResource(url) : new UrlResource(url));
 			}
 			catch (MalformedURLException ex) {
 				// No URL -> resolve as resource path.
+				// 如果URL解析失败，则使用ClassPathResource
 				return getResourceByPath(location);
 			}
 		}

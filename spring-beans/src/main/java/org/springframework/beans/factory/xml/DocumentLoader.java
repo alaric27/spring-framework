@@ -22,6 +22,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 
 /**
+ * 加载XML资源文件解析为Document
  * Strategy interface for loading an XML {@link Document}.
  *
  * @author Rob Harrop

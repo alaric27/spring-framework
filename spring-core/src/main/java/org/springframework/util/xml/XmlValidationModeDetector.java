@@ -80,6 +80,7 @@ public class XmlValidationModeDetector {
 
 
 	/**
+	 * 检测验证模式，检测方式比较简单，如果包含 DOCTYPE 则为 DTD 模式，否则 为 VALIDATION_XSD 模式
 	 * Detect the validation mode for the XML document in the supplied {@link InputStream}.
 	 * Note that the supplied {@link InputStream} is closed by this method before returning.
 	 * @param inputStream the InputStream to parse

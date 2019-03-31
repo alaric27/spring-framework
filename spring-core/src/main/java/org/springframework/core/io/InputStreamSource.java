@@ -41,6 +41,7 @@ import java.io.InputStream;
 public interface InputStreamSource {
 
 	/**
+	 * 获取当前资源代表的输入流。除了InputStreamResource实现类以外，其它Resource实现类每次调用getInputStream()方法都将返回一个全新的InputStream。
 	 * Return an {@link InputStream} for the content of an underlying resource.
 	 * <p>It is expected that each call creates a <i>fresh</i> stream.
 	 * <p>This requirement is particularly important when you consider an API such
@@ -52,5 +53,4 @@ public interface InputStreamSource {
 	 * @throws IOException if the content stream could not be opened
 	 */
 	InputStream getInputStream() throws IOException;
-
 }

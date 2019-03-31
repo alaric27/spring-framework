@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.io.ResourceLoader</OriginalElement>
+  <nodes>
+    <node x="0.0" y="158.0">org.springframework.core.io.support.PathMatchingResourcePatternResolver</node>
+    <node x="178.25" y="0.0">org.springframework.core.io.ResourceLoader</node>
+    <node x="264.5" y="79.0">org.springframework.core.io.DefaultResourceLoader</node>
+    <node x="42.5" y="79.0">org.springframework.core.io.support.ResourcePatternResolver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.core.io.support.ResourcePatternResolver" target="org.springframework.core.io.ResourceLoader">
+      <point x="0.0" y="-14.5" />
+      <point x="143.5" y="54.0" />
+      <point x="215.0" y="54.0" />
+      <point x="-36.75" y="14.5" />
+    </edge>
+    <edge source="org.springframework.core.io.support.PathMatchingResourcePatternResolver" target="org.springframework.core.io.support.ResourcePatternResolver">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.core.io.DefaultResourceLoader" target="org.springframework.core.io.ResourceLoader">
+      <point x="0.0" y="-14.5" />
+      <point x="360.0" y="54.0" />
+      <point x="288.5" y="54.0" />
+      <point x="36.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="228.0" y="93.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
