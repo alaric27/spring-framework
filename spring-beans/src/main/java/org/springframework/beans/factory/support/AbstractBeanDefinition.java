@@ -140,24 +140,51 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	@Nullable
 	private volatile Object beanClass;
 
+	/**
+	 * bean的作用范围
+	 */
 	@Nullable
 	private String scope = SCOPE_DEFAULT;
 
+	/**
+	 * 是否是抽象
+	 */
 	private boolean abstractFlag = false;
 
+	/**
+	 * 是否延迟加载
+	 */
 	private boolean lazyInit = false;
 
+	/**
+	 * 自动注入模式
+	 */
 	private int autowireMode = AUTOWIRE_NO;
 
+	/**
+	 * 依赖检查
+	 */
 	private int dependencyCheck = DEPENDENCY_CHECK_NONE;
 
+	/**
+	 * 当前bean的实例化所依赖的其他bean
+	 */
 	@Nullable
 	private String[] dependsOn;
 
+	/**
+	 * 当autowireCandidate设置为false时，自动装配的时候不会使用该bean注入其他bean
+	 */
 	private boolean autowireCandidate = true;
 
+	/**
+	 * 当自动装配出现多个候选者时，将作为首选项
+	 */
 	private boolean primary = false;
 
+	/**
+	 * 用于记录Qualifier
+	 */
 	private final Map<String, AutowireCandidateQualifier> qualifiers = new LinkedHashMap<>();
 
 	@Nullable
@@ -176,9 +203,15 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	@Nullable
 	private ConstructorArgumentValues constructorArgumentValues;
 
+	/**
+	 * 普通属性集合
+	 */
 	@Nullable
 	private MutablePropertyValues propertyValues;
 
+	/**
+	 * 方法重写，用于记录lookup-method、replaced-method元素
+	 */
 	@Nullable
 	private MethodOverrides methodOverrides;
 
@@ -188,10 +221,19 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	@Nullable
 	private String destroyMethodName;
 
+	/**
+	 * 是否执行初始化方法
+	 */
 	private boolean enforceInitMethod = true;
 
+	/**
+	 * 是否执行销毁方法
+	 */
 	private boolean enforceDestroyMethod = true;
 
+	/**
+	 * 是否用户自定义的而不是应用程序本身定义的，创建AOP的时候为true
+	 */
 	private boolean synthetic = false;
 
 	private int role = BeanDefinition.ROLE_APPLICATION;
