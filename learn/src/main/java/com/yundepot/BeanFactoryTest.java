@@ -28,11 +28,16 @@ public class BeanFactoryTest {
 
 	@Test
 	public void defaultListableBeanFactoryTest() {
-
-
 		SimpleBean simpleBean = beanFactory.getBean(SimpleBean.class);
+		simpleBean.send();
 		System.out.println(beanFactory.getBeanDefinition("simpleBean").getAttribute("abc"));
 	}
+
+	@Test
+	public void getBeanTest() {
+		SimpleBean simpleBean = (SimpleBean) beanFactory.getBean("simpleBean");
+	}
+
 
 	@Test
 	public void studentTest() {
