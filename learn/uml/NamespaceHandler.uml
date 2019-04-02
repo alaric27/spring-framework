@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.factory.xml.NamespaceHandler</OriginalElement>
+  <nodes>
+    <node x="0.0" y="178.0">org.springframework.aop.config.AopNamespaceHandler</node>
+    <node x="1760.0" y="178.0">org.springframework.scripting.config.LangNamespaceHandler</node>
+    <node x="650.0" y="178.0">org.springframework.jdbc.config.JdbcNamespaceHandler</node>
+    <node x="212.0" y="178.0">org.springframework.transaction.config.TxNamespaceHandler</node>
+    <node x="879.5" y="0.0">org.springframework.beans.factory.xml.NamespaceHandler</node>
+    <node x="414.0" y="178.0">org.springframework.context.config.ContextNamespaceHandler</node>
+    <node x="1552.0" y="178.0">org.springframework.beans.factory.xml.UtilNamespaceHandler</node>
+    <node x="1295.0" y="178.0">org.springframework.web.socket.config.WebSocketNamespaceHandler</node>
+    <node x="867.0" y="178.0">org.springframework.web.servlet.config.MvcNamespaceHandler</node>
+    <node x="1079.0" y="178.0">org.springframework.scheduling.config.TaskNamespaceHandler</node>
+    <node x="854.5" y="79.0">org.springframework.beans.factory.xml.NamespaceHandlerSupport</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.transaction.config.TxNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="303.0" y="138.0" />
+      <point x="890.6666666666666" y="138.0" />
+      <point x="-72.33333333333337" y="14.5" />
+    </edge>
+    <edge source="org.springframework.aop.config.AopNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="96.0" y="128.0" />
+      <point x="866.5555555555555" y="128.0" />
+      <point x="-96.44444444444446" y="14.5" />
+    </edge>
+    <edge source="org.springframework.scheduling.config.TaskNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="1177.0" y="158.0" />
+      <point x="987.1111111111111" y="158.0" />
+      <point x="24.111111111111086" y="14.5" />
+    </edge>
+    <edge source="org.springframework.web.socket.config.WebSocketNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="1413.5" y="148.0" />
+      <point x="1011.2222222222222" y="148.0" />
+      <point x="48.22222222222217" y="14.5" />
+    </edge>
+    <edge source="org.springframework.jdbc.config.JdbcNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="748.5" y="158.0" />
+      <point x="938.8888888888889" y="158.0" />
+      <point x="-24.111111111111086" y="14.5" />
+    </edge>
+    <edge source="org.springframework.beans.factory.xml.NamespaceHandlerSupport" target="org.springframework.beans.factory.xml.NamespaceHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.context.config.ContextNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="522.0" y="148.0" />
+      <point x="914.7777777777778" y="148.0" />
+      <point x="-48.22222222222217" y="14.5" />
+    </edge>
+    <edge source="org.springframework.beans.factory.xml.UtilNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="1646.0" y="138.0" />
+      <point x="1035.3333333333335" y="138.0" />
+      <point x="72.33333333333348" y="14.5" />
+    </edge>
+    <edge source="org.springframework.web.servlet.config.MvcNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.springframework.scripting.config.LangNamespaceHandler" target="org.springframework.beans.factory.xml.NamespaceHandlerSupport">
+      <point x="0.0" y="-14.5" />
+      <point x="1858.5" y="128.0" />
+      <point x="1059.4444444444446" y="128.0" />
+      <point x="96.44444444444457" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6737481031866465" x="978.5" y="103.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

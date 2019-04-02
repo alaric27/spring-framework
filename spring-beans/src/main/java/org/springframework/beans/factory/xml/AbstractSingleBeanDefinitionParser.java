@@ -48,6 +48,7 @@ import org.springframework.lang.Nullable;
 public abstract class AbstractSingleBeanDefinitionParser extends AbstractBeanDefinitionParser {
 
 	/**
+	 * 解析 Element 为 AbstractBeanDefinition
 	 * Creates a {@link BeanDefinitionBuilder} instance for the
 	 * {@link #getBeanClass bean Class} and passes it to the
 	 * {@link #doParse} strategy method.
@@ -67,6 +68,7 @@ public abstract class AbstractSingleBeanDefinitionParser extends AbstractBeanDef
 		}
 		// 获取class类型，由子类实现
 		Class<?> beanClass = getBeanClass(element);
+
 		// 设置beanClass
 		if (beanClass != null) {
 			builder.getRawBeanDefinition().setBeanClass(beanClass);
