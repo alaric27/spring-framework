@@ -599,7 +599,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		try {
 			// 对bean进行填充，对各个属性注入，其中可能存在依赖于其他bean的属性
 			populateBean(beanName, mbd, instanceWrapper);
-			// 调用初始化方法 如 init-method
+			//  初始化给定的bean实例，应用工厂回调以及init方法和bean后处理器
 			exposedObject = initializeBean(beanName, exposedObject, mbd);
 		}
 		catch (Throwable ex) {
