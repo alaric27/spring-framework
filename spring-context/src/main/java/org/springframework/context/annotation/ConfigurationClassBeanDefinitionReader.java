@@ -54,6 +54,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ *  读取一组带有完整解析数据的ConfigurationClass集合，基于他们所携带的信息向给定BeanDefinitionRegistry
+ *  注册其中所有的bean定义。
  * Reads a given fully-populated set of ConfigurationClass instances, registering bean
  * definitions with the given {@link BeanDefinitionRegistry} based on its contents.
  *
@@ -114,11 +116,15 @@ class ConfigurationClassBeanDefinitionReader {
 	public void loadBeanDefinitions(Set<ConfigurationClass> configurationModel) {
 		TrackedConditionEvaluator trackedConditionEvaluator = new TrackedConditionEvaluator();
 		for (ConfigurationClass configClass : configurationModel) {
+			// 遍历处理参数configurationModel中的每个配置类
 			loadBeanDefinitionsForConfigurationClass(configClass, trackedConditionEvaluator);
 		}
 	}
 
 	/**
+	 * 从指定的一个配置类ConfigurationClass中提取bean定义信息并注册bean定义到bean容器 :
+	 * 	 1. 配置类本身要注册为bean定义
+	 * 	 2. 配置类中的@Bean注解方法要注册为配置类
 	 * Read a particular {@link ConfigurationClass}, registering bean definitions
 	 * for the class itself and all of its {@link Bean} methods.
 	 */
@@ -134,14 +140,18 @@ class ConfigurationClassBeanDefinitionReader {
 			return;
 		}
 
+		// 如果这是一个通过import机制被导入进来的配置类，将它本身作为一个bean定义注册到容器
 		if (configClass.isImported()) {
 			registerBeanDefinitionForImportedConfigurationClass(configClass);
 		}
 		for (BeanMethod beanMethod : configClass.getBeanMethods()) {
+			// 现在把配置类里面@Bean注解的方法作为bean定义注册到容器
 			loadBeanDefinitionsForBeanMethod(beanMethod);
 		}
 
+		// 从配置类导入的bean定义资源中获取bean定义信息并注册到容器,比如导入的xml或者groovy bean定义文件
 		loadBeanDefinitionsFromImportedResources(configClass.getImportedResources());
+		// 从配置类导入的ImportBeanDefinitionRegistrar中获取bean定义信息并注册到容器
 		loadBeanDefinitionsFromRegistrars(configClass.getImportBeanDefinitionRegistrars());
 	}
 
