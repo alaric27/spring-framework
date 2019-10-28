@@ -22,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.lang.Nullable;
 
 /**
+ * 当handlerMapping获取到执行请求的controller时，
+ * DispatcherServlte会根据controller对应的controller类型来调用相应的HandlerAdapter来进行处理
  * MVC framework SPI, allowing parameterization of the core MVC workflow.
  *
  * <p>Interface that must be implemented for each handler type to handle a request.
