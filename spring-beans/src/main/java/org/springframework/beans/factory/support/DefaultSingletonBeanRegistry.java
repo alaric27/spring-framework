@@ -217,7 +217,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 				// 获取early的bean实例
 				singletonObject = this.earlySingletonObjects.get(beanName);
 
-				// 如果允许创建早期对象,则通过singletionFactory创建
+				// 如果允许创建早期对象,则通过singletonFactory创建
 				if (singletonObject == null && allowEarlyReference) {
 					ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
 					if (singletonFactory != null) {

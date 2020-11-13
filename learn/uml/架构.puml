@@ -1,0 +1,77 @@
+@startuml
+digraph G {
+    compound = true
+    bgcolor = "mintcream";
+    fontsize = 12;
+    node[fontname = "Microsoft YaHei", fontsize = 12, shape = "Mrecord", color = "skyblue", style = "filled", fixedsize = true, width = 1.0];
+    edge[fontname = "Microsoft YaHei", fontsize = 12, style = "invis"];
+
+    subgraph cluster_dataAccess {
+        label = "Data Access/Integration";
+        jdbc[label = "JDBC"];
+        orm[label = "ORM"];
+        oxm[label = "OXM"];
+        jms[label = "JMS"];
+
+        {rank = same jdbc orm oxm jms}
+        jdbc -> orm -> oxm -> jms
+        orm -> transactions
+        oxm -> transactions
+        transactions[label = "Transactions", width = 4.8];
+
+        dummy1[width = 2.3, height = 0, style = "invis"]
+        dummy2[width = 2.3, height = 0, style = "invis"]
+        transactions -> dummy1;
+        transactions -> dummy2;
+    }
+
+    subgraph cluster_web {
+        label = "Web";
+        web[label = "Web"];
+        servlet[label = "Servlet", fixedsize = true];
+        portlet[label = "Portlet", fixedsize = true];
+        {rank = same servlet portlet}
+
+        web -> servlet
+        web -> portlet
+        dummy3[width = 2.3, height = 0, style = "invis"]
+        servlet -> dummy3;
+        portlet -> dummy3;
+    }
+
+    subgraph cluster_aop {
+        label = "AOP"
+        dummy4[width = 7.4, height = 0, style = "invis"]
+        aop[label = "AOP", width = 2];
+        aspects[label = "Aspects", width = 2];
+        instrumentation[label = "Instrumentation", width = 2];
+        {rank = same aop aspects instrumentation};
+
+        dummy4 -> aop;
+        dummy4 -> aspects;
+        dummy4 -> instrumentation;
+        aop -> aspects -> instrumentation;
+    }
+
+    subgraph cluster_core {
+       label = "Core Container";
+
+       node[width = 1.6]
+       beans[label = "Beans"];
+       core[label = "Core"];
+       context[label = "Context"];
+       lan[label = "Expression\nLanguage"];
+
+       {rank = same beans core context lan}
+       beans -> core -> context -> lan;
+    }
+
+    test[label = "Test", width = 7.4]
+
+    dummy2 -> dummy4;
+    aspects -> core;
+    aspects -> context;
+    core -> test;
+    context -> test;
+}
+@endumll
